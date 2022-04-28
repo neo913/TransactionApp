@@ -8,6 +8,7 @@ import { MaterialModule } from './material.module';
 import { HomeComponent } from './home/home.component';
 import { TransactionComponent } from './transaction/transaction.component';
 import { TransactionDetailsComponent } from './transaction/transaction-details/transaction-details.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { TransactionDetailsComponent } from './transaction/transaction-details/t
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

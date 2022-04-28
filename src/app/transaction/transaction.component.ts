@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from 'src/services/app.service';
 
 @Component({
   selector: 'app-transaction',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TransactionComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private appService: AppService
+  ) { }
 
   ngOnInit(): void {
+    this.appService.getMockdata().subscribe(res => {
+      console.log(res.body);
+    })
   }
 
 }
