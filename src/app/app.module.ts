@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { TransactionListComponent } from './transaction/transaction-list.component';
 import { TransactionDetailsComponent } from './transaction/transaction-details/transaction-details.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,9 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
