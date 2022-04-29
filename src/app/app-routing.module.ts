@@ -1,13 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+import { AdditionalComponent } from './additional/additional.component';
+import { RequirementsComponent } from './requirements/requirements.component';
 import { TransactionDetailsComponent } from './transaction/transaction-details/transaction-details.component';
 import { TransactionListComponent } from './transaction/transaction-list.component';
 
 const routes: Routes = [
-  { path: "", component: HomeComponent },
+  { path: "", component: TransactionListComponent },
+  { path: "requirements", component: RequirementsComponent },
   { path: "transaction", component: TransactionListComponent },
   { path: "transaction/:id", component: TransactionDetailsComponent },
+  { path: "additional", component: AdditionalComponent },
   { path: "**", redirectTo: "" }
 ];
 

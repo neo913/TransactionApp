@@ -1,5 +1,4 @@
 <div class="transaction--details--container">
-  <button mat-raised-button (click)="goBack()">Back</button>
   <form [formGroup]="transactionDetailsEditForm" (ngSubmit)="updateTransaction()">
     
     <table mat-table [dataSource]="transactionItems">
@@ -35,5 +34,7 @@
     </table>
 
   </form>
+
+  <button mat-raised-button (click)="goBack()">Back</button>
 
 </div>

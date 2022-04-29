@@ -1,0 +1,21 @@
+@import '/src/assets/variables';
+
+mat-toolbar {
+  position: fixed;
+  span.title {
+    margin-right: 100px;
+  }
+  button.nav-button {
+    height: 100%;
+    border-radius: unset;
+    border-top: 2px solid transparent;
+    border-bottom: 2px solid transparent;
+    &:hover {
+      border-bottom: 2px solid $primary;
+    }
+    &.active {
+      background-color: $white;
+      color: $primary;
+    }
+  }
+}

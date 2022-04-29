@@ -1,0 +1,80 @@
+<div class="requirements contents">
+  <h1>Angular Code Assignment</h1>
+  
+  <h2>Angular Project prerequisite:</h2>
+  
+  <ul>
+    <li>Angular 8.0+</li>
+    <li>Bootstrap/Material Design</li>
+    <li>Sass/SCSS</li>
+    <li>Accessibility (level AA)</li>
+  </ul>
+  
+  <br />
+  <span>Create a new project skeleton with Angular CLI 8.0+ and add following artifacts.</span>
+  <ul>
+    <li>Parent component called Transaction list</li>
+    <li>Child component called Transaction Details</li>
+    <li>Transaction Service</li>
+  </ul>
+  
+  <h2>Transaction List (parent component)</h2>
+  <ul>
+    <li>This component should contain following accessible table (Table 1.1).</li>
+    <li>User should be able to navigate to the 'Transaction Detail' (child component) by clicking on the View link under the Action column.</li>
+    <li>Populate the table data by invoking Transaction Service function that returns mock data.</li>
+  </ul>
+  Table 1.1 User Transactions
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Date</th>
+      <th>Comments</th>
+      <th>Action</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>01/10/2020</td>
+      <td>Utility bill</td>
+      <td>View</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>15/10/2020</td>
+      <td></td>
+      <td>View</td>
+    </tr>
+    
+  </table>
+  
+  
+  <br />
+  <h3>Transaction Detail (child component)</h3>
+  <ul>
+    <li>This component should contain following information in an Angular form.</li>
+    <li>User should be able to update 'Comments' field and navigate back to the 'Transaction List' component.</li>
+    <li>New added/updated comments should be available on the Transaction List table.</li>
+  </ul>
+  
+  <table>
+    <tr>
+      <th>Field Name</th>
+      <th>Requirements</th>
+    </tr>
+    <tr>
+      <td>ID</td>
+      <td>Read-only</td>
+    </tr>
+    <tr>
+      <td>Date</td>
+      <td>Read-only; format should be DD/mm/yyyy</td>
+    </tr>
+    <tr>
+      <td>Comments</td>
+      <td>Required; Editable input control; allows only alphanumeric</td>
+    </tr>
+  </table>
+  <br />
+  <h2>Transaction Service</h2>
+  Create a mock service that returns 'User Transactions' data as shown in Table 1.1.
+</div>

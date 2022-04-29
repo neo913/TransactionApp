@@ -1,0 +1,14 @@
+<mat-toolbar color="primary" class="nav--toolbar">
+  <span class="title">Transaction App</span>
+  <ng-container *ngFor="let nav of navItems">
+    <button 
+      mat-button 
+      attr.aria-label="{{nav.label}}" 
+      (click)="navigateTo(nav.path)"
+      class="nav-button"
+      [ngClass]="{'active': nav.path === activatedLink}"
+    >
+      {{nav.label}}
+    </button>
+  </ng-container>
+</mat-toolbar>

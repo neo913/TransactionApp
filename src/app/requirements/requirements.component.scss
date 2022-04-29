@@ -1,0 +1,13 @@
+@import '/src/assets/variables';
+
+.requirements {
+  table, th, td {
+    border: 1px solid $black;
+    border-collapse: collapse;
+  }
+  th, td {
+    min-width: 50px;
+    padding: .4rem .6rem;
+  }
+  td { text-align: center; }
+}

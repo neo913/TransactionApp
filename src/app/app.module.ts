@@ -5,18 +5,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
-import { HomeComponent } from './home/home.component';
-import { TransactionListComponent } from './transaction/transaction-list.component';
-import { TransactionDetailsComponent } from './transaction/transaction-details/transaction-details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HeaderComponent } from './header/header.component';
+import { RequirementsComponent } from './requirements/requirements.component';
+import { TransactionListComponent } from './transaction/transaction-list.component';
+import { TransactionDetailsComponent } from './transaction/transaction-details/transaction-details.component';
+import { AdditionalComponent } from './additional/additional.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
+    HeaderComponent,
+    RequirementsComponent,
     TransactionListComponent,
-    TransactionDetailsComponent
+    TransactionDetailsComponent,
+    AdditionalComponent,
   ],
   imports: [
     BrowserModule,
