@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { Transaction } from 'src/data/transactionModel';
+import { Transaction } from 'src/app/model/transactionModel';
 import { AppService } from 'src/services/app.service';
 
 @Component({
@@ -31,7 +31,11 @@ export class TransactionDetailsComponent implements OnInit {
     this.transactionItems = new Array<Transaction>();
     this.route.params.subscribe(params => {
       this.selectedId = Number(params['id']);
-      this.appService.getDataById(this.selectedId).subscribe((data: any) => {
+      // this.appService.getDataById(this.selectedId).subscribe((data: any) => {
+      //   this.transactionItems = new Array<Transaction>();
+      //   this.transactionItems.push(new Transaction(data));
+      // });
+      this.appService.getMockDataById(this.selectedId).subscribe((data: any) => {
         this.transactionItems = new Array<Transaction>();
         this.transactionItems.push(new Transaction(data));
       });
@@ -43,8 +47,8 @@ export class TransactionDetailsComponent implements OnInit {
   }
   
   updateTransaction() {
-    this.appService.updateItem(this.transactionItems.find(item => item.id === this.selectedId));
-    // this.location.back();
+    this.appService.updateComments(this.selectedId, this.transactionDetailsEditForm.value.comments);
+    this.location.back();
   }
 
 }

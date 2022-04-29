@@ -2,11 +2,14 @@
   &--details {
     &--container {
       width: 100%;
-      max-width: 600px;
+      min-width: 600px;
       table {
         width: 100%;
         th, td {
           text-align: center;
+          button {
+            margin-left: 1rem;
+          }
         }
       }
     }
