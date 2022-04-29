@@ -1,4 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+@import './assets/variables';
+@import './assets/material_theme';
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+div.content {
+  &--container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 130px 0px;
+    min-height: calc(100vh - 260px); // calc for navigation bar height
+  }
+}
