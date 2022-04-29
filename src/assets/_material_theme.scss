@@ -1,0 +1,60 @@
+@import '~@angular/material/theming';
+
+// https://material.io/design/color/the-color-system.html#tools-for-picking-colors
+$palette-primary: (
+  50  : #FEE5E9,
+  100 : #FBBDC7,
+  200 : #F893A3,
+  300 : #F36980,
+  400 : #ED4D65,
+  500 : #E73A4E,
+  600 : #D7344C,
+  700 : #C22E49,
+  800 : #AE2747,
+  900 : #8B1D42,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+  )
+);
+$palette-accent: (
+  50  : #FFF8E3,
+  100 : #FFEDB8,
+  200 : #FFE18B,
+  300 : #FFD75F,
+  400 : #FFCD42,
+  500 : #FFC435,
+  600 : #FEB730,
+  700 : #FCA52C,
+  800 : #FB952A,
+  900 : #FA7723,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+  )
+);
+
+$primary: mat-palette($palette-primary, 900);
+$accent:  mat-palette($palette-accent, 400);
+$warn:    mat-palette($mat-red, 600);
+
+$theme: mat-light-theme($primary, $accent, $warn);
+
+@include angular-material-theme($theme);
+
