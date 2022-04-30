@@ -6,7 +6,7 @@ app.get('/api/transactions', (req, res) => {
   res.send(mockdata);
 });
 
-app.listen(3000, () => console.log('Server is running on localhost:3000'));
+app.listen(8080, () => console.log('Server is running on localhost:8080'));
 
 const mockdata = [
   {
