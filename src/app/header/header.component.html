@@ -1,14 +1,37 @@
 <mat-toolbar color="primary" class="nav--toolbar">
   <span class="title">Transaction App</span>
-  <ng-container *ngFor="let nav of navItems">
-    <button 
-      mat-button 
-      attr.aria-label="{{nav.label}}" 
-      (click)="navigateTo(nav.path)"
-      class="nav-button"
-      [ngClass]="{'active': nav.path === activatedLink}"
-    >
-      {{nav.label}}
-    </button>
-  </ng-container>
+  
+  <!-- normal menu -->
+  <div>
+    <ng-container *ngFor="let nav of navItems">
+      <button 
+        mat-button 
+        attr.aria-label="{{nav.label}}" 
+        (click)="navigateTo(nav.path)"
+        class="nav-button"
+        [ngClass]="{'active': nav.path === activatedLink}"
+      >
+        {{nav.label}}
+      </button>
+    </ng-container>
+  </div>
+  <!-- /normal menu -->
+
+  <!-- responsive menu-->
+  <div class="mobile-menu">
+    <ng-container>
+      <button mat-icon-button [matMenuTriggerFor]="menu_responsive" aria-label="Menu button">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu_responsive="matMenu">
+        <ng-container *ngFor="let nav of navItems">
+          <button mat-menu-item (click)="navigateTo(nav.path)">
+            <span>{{nav.label}}</span>
+          </button>
+        </ng-container>
+      </mat-menu>
+    </ng-container>
+  </div>
+  <!-- /responsive menu-->
+
 </mat-toolbar>

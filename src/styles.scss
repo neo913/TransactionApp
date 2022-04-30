@@ -12,4 +12,9 @@ div.content {
     padding: 130px 0px;
     min-height: calc(100vh - 260px); // calc for navigation bar height
   }
+  @media screen and (max-width: 600px) {
+    &--container {
+      justify-content: flex-start;
+    }
+  }
 }
