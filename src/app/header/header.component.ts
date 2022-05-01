@@ -12,9 +12,9 @@ export class HeaderComponent implements OnInit {
   public activatedLink = "";
 
   public navItems = [
-    { label: "Requirements",  path: "/requirements" },
-    { label: "Transaction",   path: "/transaction"  },
-    { label: "Additional",    path: "/additional"   },
+    { label: "Requirements",  path: "requirements" },
+    { label: "Transaction",   path: "transaction"  },
+    { label: "Additional",    path: "additional"   },
   ]
 
   constructor(
@@ -28,7 +28,7 @@ export class HeaderComponent implements OnInit {
   }
 
   setActivatedLink() {
-    this.activatedLink = this.location.path();
+    this.activatedLink = this.location.path().split('/')[1];
   }
 
   navigateTo(path: string) {

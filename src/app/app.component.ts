@@ -7,14 +7,14 @@ import { AppService } from 'src/services/app.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'TransactionApp';
+  title = 'Transaction App';
 
   constructor(
     private appService: AppService
   ) { }
 
   ngOnInit(): void {
-    this.appService.setMockData();
+    this.appService.setMockData();  // to use localStorage
   }
 
 }
