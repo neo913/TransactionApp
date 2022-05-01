@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, Subject, takeUntil } from 'rxjs';
 import { AppService } from 'src/services/app.service';
 import { Transaction } from '../model/transactionModel';
-import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-additional',
