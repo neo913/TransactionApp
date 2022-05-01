@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Transaction } from 'src/app/model/transactionModel';
 import { AppService } from 'src/services/app.service';
@@ -15,7 +15,7 @@ export class TransactionDetailsComponent implements OnInit {
   public displayedColumns: string[] = ['id', 'date', 'comments'];
 
   public transactionDetailsEditForm = new FormGroup({
-    comments: new FormControl('')
+    comments: new FormControl('', Validators.pattern('^[A-Za-z ]+$'))
   });
 
   public transactionItems: Transaction[] = new Array<Transaction>();
@@ -47,6 +47,7 @@ export class TransactionDetailsComponent implements OnInit {
   }
   
   updateTransaction() {
+    if(this.transactionDetailsEditForm.invalid) return;
     this.appService.updateComments(this.selectedId, this.transactionDetailsEditForm.value.comments);
     this.location.back();
   }
