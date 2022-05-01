@@ -16,7 +16,7 @@ export class AppService {
 
   /**
    * 
-   * GET the data From JSON File /data/mockdata.json
+   * GET all data From JSON File(/data/mockdata.json)
    */
   getAllData(): Observable<HttpResponse<any>> {
     return this.http.get(MOCK_API_URL, { observe: 'response'} );
@@ -25,7 +25,7 @@ export class AppService {
   /**
    * 
    * @param id number
-   * GET teh data From JSON File /data/mockdata.json
+   * GET teh data From JSON File(/data/mockdata.json)
    */
   getDataById(id: number): Observable<HttpResponse<any>> {
     return this.http.get(MOCK_API_URL, { observe: 'response'} ).pipe(map(res => {
@@ -43,7 +43,7 @@ export class AppService {
   }
 
   /**
-   * GET the data from localStorage
+   * GET all data from localStorage
    * @returns 
    */
   getMockData(): Observable<any> {
@@ -79,24 +79,39 @@ export class AppService {
     });
   }
 
+  /**
+   * 
+   * @param id number
+   * @param comments string
+   * update Comments property using locationStorage
+   */
   updateComments(id: number, comments: string) {
     let data = window.localStorage.getItem("data");
-    let temp;
+    let newData;
     try {
       if(data) {
-        temp = JSON.parse(data);
-        temp.find((item:any) => item.id === id).comments = comments;
-        window.localStorage.setItem("data", JSON.stringify(temp));
+        newData = JSON.parse(data);
+        newData.find((item:any) => item.id === id).comments = comments;
+        window.localStorage.setItem("data", JSON.stringify(newData));
       }
     } catch(e) {
       console.error('Could not update: ', e);
     }
   }
 
+  /**
+   * 
+   * @returns All data from localhost:8080
+   */
   getAllFakeAPI(): Observable<HttpResponse<any>> {
     return this.http.get(FAKE_API_URL, { observe: 'response' } );
   }
 
+  /**
+   * 
+   * @param id number
+   * @returns Selected data from localhost:8080
+   */
   getFakeAPIById(id: number): Observable<HttpResponse<any>> {
     return this.http.get(FAKE_API_URL, { observe: 'response'} ).pipe(map(res => {
       return (res.body as Array<any>).find(item => item.id === id);
