@@ -1,16 +1,12 @@
 <mat-toolbar color="primary" class="nav--toolbar">
-  <span class="title">Transaction App</span>
+  <button mat-button class="title" [routerLink]="'/'" aria-label="Home title" tabindex="0">
+    <span>Transaction App</span>
+  </button>
   
   <!-- normal menu -->
   <div>
     <ng-container *ngFor="let nav of navItems">
-      <button 
-        mat-button 
-        attr.aria-label="{{nav.label}}" 
-        (click)="navigateTo(nav.path)"
-        class="nav-button"
-        [ngClass]="{'active': nav.path === activatedLink}"
-      >
+      <button mat-button (click)="navigateTo(nav.path)" class="nav-button" [ngClass]="{'active': nav.path === activatedLink}"  tabindex="0" attr.aria-label="{{nav.label}}">
         {{nav.label}}
       </button>
     </ng-container>
@@ -20,12 +16,12 @@
   <!-- responsive menu-->
   <div class="mobile-menu">
     <ng-container>
-      <button mat-icon-button [matMenuTriggerFor]="menu_responsive" aria-label="Menu button">
+      <button mat-icon-button [matMenuTriggerFor]="menu_responsive" aria-label="Mobile collapsed Menu button" tabindex="0">
         <mat-icon>more_vert</mat-icon>
       </button>
       <mat-menu #menu_responsive="matMenu">
         <ng-container *ngFor="let nav of navItems">
-          <button mat-menu-item (click)="navigateTo(nav.path)">
+          <button mat-menu-item (click)="navigateTo(nav.path)" tabindex="0" attr.aria-label="{{nav.label}}">
             <span>{{nav.label}}</span>
           </button>
         </ng-container>

@@ -1,4 +1,5 @@
 <div class="transaction--details--container">
+
   <form [formGroup]="transactionDetailsEditForm" (ngSubmit)="updateTransaction()">
     
     <table mat-table [dataSource]="transactionItems">
@@ -22,9 +23,18 @@
         <td mat-cell *matCellDef="let transaction">
           <mat-form-field>
             <mat-label>Comments</mat-label>
-            <input matInput placeholder="Enter Comments here" type="text" formControlName="comments" [(ngModel)]="transaction.comments">
+            <input 
+              matInput 
+              placeholder="Enter Comments here" 
+              type="text" 
+              formControlName="comments" 
+              [(ngModel)]="transaction.comments" 
+              autofocus 
+              tabindex="0"
+              aria-label="Comments edit input field"
+            >
           </mat-form-field>
-          <button mat-stroked-button type="submit">update</button>
+          <button mat-stroked-button type="submit" aria-label="Update">update</button>
         </td>
       </ng-container>
   
@@ -35,6 +45,6 @@
 
   </form>
 
-  <button mat-raised-button (click)="goBack()">Back</button>
+  <button mat-raised-button class="back-btn" (click)="goBack()" aria-label="Go back">Back</button>
 
 </div>

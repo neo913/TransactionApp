@@ -2,7 +2,11 @@
 @import './assets/material_theme';
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  color: $font-color;
+}
 
 div.content {
   &--container {
@@ -17,4 +21,12 @@ div.content {
       justify-content: flex-start;
     }
   }
+}
+
+button:focus {  
+  outline: 2px solid $blue;
+}
+
+.mat-cell {
+  color: $font-color;
 }
