@@ -126,13 +126,5 @@ export class AppService {
     }));
   }
 
-  /**
-   * 
-   * @param id number
-   * @param comments string
-   */
-  updateFakeAPI(id:number, comments: string) {
-
-  }
 
 }
