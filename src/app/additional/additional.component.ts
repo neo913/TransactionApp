@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
+import { AppService } from 'src/services/app.service';
+import { Transaction } from '../model/transactionModel';
 
 @Component({
   selector: 'app-additional',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdditionalComponent implements OnInit {
 
-  constructor() { }
+  public transactions$: Observable<Transaction[]> = new Observable<Transaction[]>();
+  public unsubscriber$: Subject<void> = new Subject();
+  
+  constructor(
+    private appService: AppService
+  ) { }
 
   ngOnInit(): void {
+    this.transactions$ = this.appService.getAllFakeAPI();
+  }
+
+  ngOnDestroy() {
+    this.unsubscriber$.next();
+    this.unsubscriber$.complete();
   }
 
 }

@@ -24,6 +24,7 @@ export class TransactionListComponent implements OnInit {
 
   ngOnInit(): void {
 
+    /** deprecated since this cannot update data. */ 
     // this.appService.getAllData().pipe(takeUntil(this.unsubscriber$)).subscribe(data => {
     //   if(data.body.length > 0) {
     //     this.transactionList = new Array<Transaction>();

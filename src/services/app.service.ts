@@ -1,6 +1,7 @@
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
+import { Transaction } from 'src/app/model/transactionModel';
 
 const MOCK_API_URL = "/data/mockdata.json";
 const FAKE_API_URL = "/api/transactions"; // running on localhost:3000 by running "node fakeapi.ts"
@@ -44,7 +45,7 @@ export class AppService {
 
   /**
    * GET all data from localStorage
-   * @returns 
+   * @returns all data from localStorage
    */
   getMockData(): Observable<any> {
     return new Observable(observer => {
@@ -103,8 +104,15 @@ export class AppService {
    * 
    * @returns All data from localhost:8080
    */
-  getAllFakeAPI(): Observable<HttpResponse<any>> {
-    return this.http.get(FAKE_API_URL, { observe: 'response' } );
+  getAllFakeAPI(): Observable<Transaction[]> {
+    return this.http.get(FAKE_API_URL, { observe: 'response' } ).pipe(map(res => {
+      let transactions = new Array<Transaction>();
+      (res.body as Array<any>).map(item => {
+        transactions.push(new Transaction(item));
+      });
+      return transactions;
+    }));
+
   }
 
   /**
@@ -116,6 +124,15 @@ export class AppService {
     return this.http.get(FAKE_API_URL, { observe: 'response'} ).pipe(map(res => {
       return (res.body as Array<any>).find(item => item.id === id);
     }));
+  }
+
+  /**
+   * 
+   * @param id number
+   * @param comments string
+   */
+  updateFakeAPI(id:number, comments: string) {
+
   }
 
 }

@@ -5,13 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { RequirementsComponent } from './requirements/requirements.component';
 import { TransactionListComponent } from './transaction/transaction-list.component';
 import { TransactionDetailsComponent } from './transaction/transaction-details/transaction-details.component';
 import { AdditionalComponent } from './additional/additional.component';
+import { ErrorComponent } from './error/error.component';
+import { InterceptorService } from 'src/services/interceptor.service';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,7 @@ import { AdditionalComponent } from './additional/additional.component';
     TransactionListComponent,
     TransactionDetailsComponent,
     AdditionalComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,13 @@ import { AdditionalComponent } from './additional/additional.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
