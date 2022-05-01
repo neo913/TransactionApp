@@ -35,7 +35,7 @@ export class TransactionListComponent implements OnInit {
     // });
 
     this.appService.getMockData().pipe(takeUntil(this.unsubscriber$)).subscribe(data => {
-      if(data.length > 0) {
+      if(data && data.length > 0) {
         this.transactionList = new Array<Transaction>();
         data.map((item: any) => {
           this.transactionList.push(new Transaction(item));
