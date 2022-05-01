@@ -1,9 +1,27 @@
 <div class="additional--container">
-  <div *ngIf="!transactions$">
-    no
+  
+  <div class="additional--list">
+    <div class="additional--header">
+      <div *ngFor="let key of keyList">
+        <span>{{key}}</span>
+      </div>
+    </div>
+    <div class="additional--row" [ngClass]="{'active': selectedDetail?.id === transaction.id}" *ngFor="let transaction of transactions$ | async">
+      <div>
+        <span>{{transaction.id}}</span>
+      </div>
+      <div>
+        <span>{{transaction.get('date') | date: 'dd/MM/yyyy'}}</span>
+      </div>
+      <div>
+        <span>{{transaction.get('comments')}}</span>
+      </div>
+      <div>
+        <button mat-stroked-button (click)="viewDetails(transaction)" attr.aria-label="{{'view item' + transaction.id}}">View</button>
+      </div>
+    </div>
   </div>
 
-</div>
-<div *ngFor="let transaction of transactions$ | async">
-  {{transaction.id}}, {{transaction.get('date') | date: 'dd/MM/yyyy'}}, {{transaction.get('comments')}}
+  <app-additional-details [selectedDetail]="selectedDetail"></app-additional-details>
+
 </div>

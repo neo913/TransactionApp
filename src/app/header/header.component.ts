@@ -27,6 +27,10 @@ export class HeaderComponent implements OnInit {
     this.setActivatedLink();
   }
 
+  ngAfterViewChecked() {
+    this.setActivatedLink();
+  }
+
   setActivatedLink() {
     this.activatedLink = this.location.path().split('/')[1];
   }

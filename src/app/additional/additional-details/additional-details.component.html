@@ -1,0 +1,19 @@
+<div *ngIf="selectedDetail" class="additional--details">
+  <div>
+    <div><span>ID</span></div>
+    <div><span>{{selectedDetail.id}}</span></div>
+  </div>
+  <div>
+    <div><span>DATE</span></div>
+    <div><span>{{selectedDetail.get('date') | date: 'dd/MM/yyyy'}}</span></div>
+  </div>
+  <div>
+    <div><span>COMMENTS</span></div>
+    <div>
+      <mat-form-field appearance="standard" floatLabel='never'>
+        <input matInput placeholder="Enter comments" [ngModel]="selectedDetail.get('comments')" (ngModelChange)="updateComments($event)">
+        <span *ngIf="commentsInputError" class="invalid">Alphabets are allowed only</span>
+      </mat-form-field>
+    </div>
+  </div>
+</div>

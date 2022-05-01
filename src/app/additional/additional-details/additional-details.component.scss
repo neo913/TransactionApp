@@ -1,0 +1,32 @@
+@import '/src/assets/variables';
+
+div { display: flex; }
+.additional--details {
+  min-width: 400px;
+  border: 1px solid $font-color;
+  margin: 1rem;
+  padding: 1rem;
+  flex-direction: column;
+  > div {
+    height: 60px;
+    display: flex;
+    > div {
+      width: 80%;
+      padding: 0.4rem 0.6rem;
+      align-items: center;
+      &:first-child {
+        width: 20%;
+        font-size: 1rem;
+        font-weight: 500;
+        justify-content: flex-end;
+      }
+    }
+  }
+  span.invalid {
+    position: absolute;
+    left: 0px;
+    margin-top: 22px;
+    font-size: 12px;
+    color: red;
+  }
+}

@@ -14,6 +14,7 @@ import { TransactionDetailsComponent } from './transaction/transaction-details/t
 import { AdditionalComponent } from './additional/additional.component';
 import { ErrorComponent } from './error/error.component';
 import { InterceptorService } from 'src/services/interceptor.service';
+import { AdditionalDetailsComponent } from './additional/additional-details/additional-details.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { InterceptorService } from 'src/services/interceptor.service';
     TransactionDetailsComponent,
     AdditionalComponent,
     ErrorComponent,
+    AdditionalDetailsComponent,
   ],
   imports: [
     BrowserModule,
