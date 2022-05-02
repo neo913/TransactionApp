@@ -33,6 +33,9 @@
               tabindex="0"
               aria-label="Comments edit input field"
             >
+            <mat-error *ngIf="transactionDetailsEditForm.controls['comments'].hasError('pattern')">
+              Alphabets are allowed only
+            </mat-error>
           </mat-form-field>
           <button mat-stroked-button type="submit" aria-label="Update">update</button>
         </td>
